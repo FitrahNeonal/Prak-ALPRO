@@ -28,11 +28,14 @@ void clearInputBuffer() {
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
  
-void cetakBingkaiAtasBawah(int panjang) {
-    for (int i = 0; i < panjang; i++) {
-        cout << "=";
-    }
-    cout << endl;
+void cetakBingkaiAtasBawah(int panjang, int i) {
+    if(i>panjang){
+    	return ;
+	}else{
+		cout<<"=";
+	}
+
+    return cetakBingkaiAtasBawah(panjang,i+1);
 }
  
 string getAgamaName(int agama) {
@@ -95,14 +98,14 @@ void inputKTP(KTP &ktp) {
  
 void displayKTP(const KTP &ktp, int index = -1) {
     const int lebar = 60;
-    cetakBingkaiAtasBawah(lebar);
- 
+    cetakBingkaiAtasBawah(lebar,1);
+ cout<<endl;
     if (index != -1)
         cout << "Data KTP ke-" << index + 1 << endl;
  
     cout << setw((lebar + 18) / 2) << "KARTU TANDA PENDUDUK (KTP)" << endl;
-    cetakBingkaiAtasBawah(lebar);
- 
+    cetakBingkaiAtasBawah(lebar,1);
+ cout<<endl;
     cout << left << setw(20) << "NIK" << ": " << ktp.nik << endl;
     cout << left << setw(20) << "Nama" << ": " << ktp.nama << endl;
     cout << left << setw(20) << "Tempat/Tgl Lahir" << ": " << ktp.tempat_tgl_lahir << endl;
@@ -119,7 +122,7 @@ void displayKTP(const KTP &ktp, int index = -1) {
     cout << left << setw(20) << "Kewarganegaraan" << ": " << ktp.kewarganegaraan << endl;
     cout << left << setw(20) << "Berlaku Hingga" << ": " << ktp.berlaku_hingga << endl;
  
-    cetakBingkaiAtasBawah(lebar);
+    cetakBingkaiAtasBawah(lebar,1);
 }
  
 void editKTP(KTP &ktp) {
